@@ -44,6 +44,7 @@ const AvailableMeals = () => {
   return (
     <section className={classes.meals}>
       <Card>
+        <h2>Mains</h2>
         <ul>{menu}</ul>
       </Card>
     </section>

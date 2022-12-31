@@ -11,6 +11,11 @@
     padding: 0;
     font-family: Palatino;
   }
+
+  .meals h2 {
+    font-family: Palatino;
+    font-size: 30px;
+  }
   
   @keyframes meals-appear {
     from {
