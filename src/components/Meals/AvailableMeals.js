@@ -30,7 +30,7 @@ const DUMMY_FILIPINO_MAINS = [
   },
 ];
 
-const AvailableMeals = () => {
+const AvailableMeals = (props) => {
   const menu = DUMMY_FILIPINO_MAINS.map((meal) => (
     <MealItem
       id={meal.id}
@@ -38,6 +38,7 @@ const AvailableMeals = () => {
       name={meal.name}
       description={meal.description}
       price={meal.price}
+      addItem={props.addItem}
     />
   ));
 
