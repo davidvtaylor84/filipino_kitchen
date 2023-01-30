@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useState}from "react";
 import classes from "./Cart.module.css";
 import Modal from "../UI/Modal";
 import CartItem from "./CartItem";
+import Checkout from "./Checkout";
 
 const Cart = (props) => {
+  const [isCheckedOut, setIsCheckedOut]=useState(false);
   const totalAmount = `£${props.cartState.totalAmount.toFixed(2)}`;
   const hasItems = props.cartState.items.length > 0;
 
@@ -15,6 +17,20 @@ const Cart = (props) => {
     props.addItem({...item, amount:1})
   };
 
+  const orderHandler =()=>{
+    setIsCheckedOut(true)
+  }
+
+  const submitOrderHandler = (userData)=>{
+      fetch('http://localhost:8080/orders', {
+        method: 'POST',
+        body: JSON.stringify({
+          user: userData,
+          orderedItems: props.cartState.items
+        })
+      });
+  }
+
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {props.cartState.items.map((item) => (
@@ -22,6 +38,14 @@ const Cart = (props) => {
       ))}
     </ul>
   );
+
+  const modalActions = <div className={classes.actions}>
+        <button className={classes["buttons--alt"]} onClick={props.onClose}>
+          Close
+        </button>
+        {hasItems && <button className={classes.button} onClick={orderHandler}>Order</button>}
+      </div>
+
   return (
     <Modal onClose={props.onClose}>
       {cartItems}
@@ -29,12 +53,8 @@ const Cart = (props) => {
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
-      <div className={classes.actions}>
-        <button className={classes["buttons--alt"]} onClick={props.onClose}>
-          Close
-        </button>
-        {hasItems && <button className={classes.button}>Order</button>}
-      </div>
+      {isCheckedOut && <Checkout onConfirm={submitOrderHandler} onCancel={props.onClose}/>}
+      {!isCheckedOut && modalActions}
     </Modal>
   );
 };
