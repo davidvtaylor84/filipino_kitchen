@@ -1,6 +1,7 @@
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
+import Footer from "./components/Layout/Footer";
 import { useState, useReducer } from "react";
 
 
@@ -83,6 +84,7 @@ function App() {
       <main>
         <Meals addItem={addItemToCartHandler}/>
       </main>
+      <Footer/>
     </>
   );
 }

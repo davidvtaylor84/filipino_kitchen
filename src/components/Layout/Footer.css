@@ -1,0 +1,47 @@
+.footer {
+    text-align: center;
+    color: white;
+    padding-bottom: 3%;
+    font-family: 'Times New Roman', Times, serif;
+    background-color:rgb(4, 95, 4) ;
+    margin-top: 0%;
+    padding-top: 0%;
+}
+
+.footer h3 {
+    font-size: 50px;
+    margin-top: 0%;
+    margin-bottom: 0.5%;
+    font-family: Luminari;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
+.footer h4{
+    margin-top: 0.5%;
+}
+
+.footer a{
+    margin-top: 0.5%;
+}
+
+.buffet {
+    
+    margin-bottom: 2%;
+    padding-bottom: 0%;
+    display: block;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 100%;
+    height: auto;
+    
+}
+
+.picture {
+    border-radius: 25px;
+    width: 50%;
+    
+}

@@ -1,12 +1,16 @@
 import React from 'react'
 import MealsSummary from './MealsSummary'
-import AvailableMeals from './AvailableMeals'
+import Starters from './Starters'
+import Mains from './Mains'
+import Desserts from './Desserts'
 
 const Meals = (props) => {
   return (
     <>
     <MealsSummary/>
-    <AvailableMeals addItem={props.addItem}/>
+    <Starters addItem={props.addItem}/>
+    <Mains addItem={props.addItem}/>
+    <Desserts addItem={props.addItem}/>
     </>
   )
 }

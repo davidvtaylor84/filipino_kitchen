@@ -16,6 +16,15 @@
     font-family: Palatino;
     font-size: 30px;
   }
+
+  .label {
+    text-align: center;
+  }
+  .mealsLoading{
+    text-align: center;
+    color: white;
+    font-size: 30px;
+  }
   
   @keyframes meals-appear {
     from {
