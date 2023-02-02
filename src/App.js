@@ -55,6 +55,11 @@ function App() {
         totalAmount: updatedTotalAmount
       }
     }
+
+    if(action.type==='CLEAR'){
+      return defaultCartState;
+    }
+
     return defaultCartState;
   }
 
@@ -68,7 +73,10 @@ function App() {
     dispatchCartAction({type: 'REMOVE', id: id})
   };
 
-
+  const clearCartHandler = ()=> {
+    dispatchCartAction({type: 'CLEAR'})
+  }
+    
   const showCartHandler = () => {
     setCartIsShown(true);
   };
@@ -79,7 +87,7 @@ function App() {
 
   return (
     <>
-      {cartIsShown && <Cart onClose={hideCartHandler} cartState={cartState} addItem={addItemToCartHandler} removeItem={removeItemFromCartHandler}/> }
+      {cartIsShown && <Cart onClose={hideCartHandler} clearCartHandler={clearCartHandler} cartState={cartState} addItem={addItemToCartHandler} removeItem={removeItemFromCartHandler}/> }
       <Header onShowCart={showCartHandler} cartNumber={cartState.items} cart={cartState}/>
       <main>
         <Meals addItem={addItemToCartHandler}/>
